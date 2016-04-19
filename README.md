@@ -1,5 +1,7 @@
 # Backend Challenges [WIP]
 
+[![Join the chat at https://gitter.im/FreeCodeCamp/BackendChallanges](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/FreeCodeCamp/BackendChallanges)
+
 This contains the sample implementations for various standard problems to test the [REPL API](https://repl.it/api).
 
 The implementations have to be in one of these languages or frameworks
