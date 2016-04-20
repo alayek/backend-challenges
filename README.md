@@ -15,6 +15,55 @@ The implementations have to be in one of these languages or frameworks
 
 Not all of these are supported on [REPL](https://repl.it/) at the moment; but for now, we are populating with code samples with the hope that it would be available in near future.
 
+### REPL API Usage
+
+The tests are run using [REPL API](https://repl.it/api/). It supports multiple languages, as long as the language is clearly specified from client side.
+
+Once you have obtained the REPL API secret key, you can use that to generate API token and use that token. The steps are provided as follows:
+- Execute the Ruby code in this [REPL snippet](https://repl.it/gZp/1). It would return a JSON output with two fields: `msg_mac` and `time_created`.
+- Make a call to the REPL API like this
+```html
+<html>
+    <head></head>
+    <body>
+        <h1>REPL TESTER </h1>
+        <p><button onclick="test()">TEST</button></p>
+        <h4>Output : </h4>
+        <p class="output"></p>
+        <script src="http://repl.it/lib/api.js"></script>
+        <script>
+        function test() {
+            var token = {msg_mac: 'msg_mac', time_created: 000000000};
+            var repl = new ReplitClient('api.repl.it', 80, 'python', token);
+            repl.connect().then(
+              function() { console.log('connected'); },
+              function() { console.log('failed to connect'); }
+            );
+        }
+        </script>
+    </body>
+</html>
+```
+Replace `msg_mac` and `time_created` with the values generated from the API.
+
+Notice that each generated token expires in five days. It's recommended to create one token per user
+
+### Obtaining REPL API Secret
+
+At this moment, we are sharing the REPL API secret key among a handful of contributors.
+
+We are not entertaining requests to share it at the moment.
+
+### Note to REPL API Secret Key Holders
+
+You are not to share the API secret, or API token at any public forum or public chatroom, where others can easily obtain and use it without our consent.
+
+If you absolutely have to share it with a fellow contributor, who for some reason has lost his/her copy of it - use private messaging or email to share the API secret.
+
+**Do NOT** commit the API tokens as part of your `git commit`. You are supposed to export those values as environment variables and use the placeholders in committed code.
+
+If you have mistakenly done so, you might want to remove and purge [such sensitive data](https://help.github.com/articles/remove-sensitive-data/).
+
 ### Contributions
 
 For more info on how to contribute, check out contribution guide.
