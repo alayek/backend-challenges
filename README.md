@@ -15,6 +15,14 @@ The implementations have to be in one of these languages or frameworks
 
 Not all of these are supported on [REPL](https://repl.it/) at the moment; but for now, we are populating with code samples with the hope that it would be available in near future.
 
+## Install & Run
+
+```
+npm install
+
+node phantom-tester.js --port [port]
+```
+
 ### REPL API Usage
 
 The tests are run using [REPL API](https://repl.it/api/). It supports multiple languages, as long as the language is clearly specified from client side.

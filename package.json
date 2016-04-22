@@ -1,0 +1,24 @@
+{
+  "name": "backend-challenges",
+  "version": "1.0.0",
+  "description": "[![Join the chat at https://gitter.im/FreeCodeCamp/BackendChallanges](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/FreeCodeCamp/BackendChallanges)",
+  "main": "phantom-tester.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alayek/backend-challenges.git"
+  },
+  "author": "",
+  "license": "BSD-3",
+  "bugs": {
+    "url": "https://github.com/alayek/backend-challenges/issues"
+  },
+  "homepage": "https://github.com/alayek/backend-challenges#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "phantom": "^2.0.10",
+    "yargs": "^4.6.0"
+  }
+}
