@@ -1,0 +1,40 @@
+<html>
+	<head></head>
+	<body>
+		<h1 id="head">REPL TESTER </h1>
+		<p>Code : </p>
+		<textarea id="code" rows="10" cols="100"></textarea>
+		<p><button onclick="test()">TEST</button></p>
+		<h4>Output : </h4>
+		<p class="output"></p>
+		<input type="hidden" value="" id="token"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+		<script src="http://repl.it/lib/api.js"></script>
+		<script>
+		function test() {
+			console.log("clicked");
+			var token = JSON.parse($("#token").val())
+			var repl = new ReplitClient('api.repl.it', 80, 'python', token);
+			var code = $('#code').val()
+			console.log(code)
+			repl.connect().then(
+			  function() { 
+			  	console.log('connected');
+			  	repl.evaluate(code, {stdout : function(out) { console.log(out);}})
+			  		.then(function (result) {
+			  			if(result.error) {
+			  				console.log('error', result.error);
+			  			}
+			  			console.log('result', result.data);
+			  			// call phantom callback
+			  			if (typeof window.callPhantom === 'function') {
+							  window.callPhantom({ payload: result.data });
+							}
+			  		})
+			  },
+			  function() { console.log('failed to connect'); }
+			);
+		}
+		</script>
+	</body>
+</html>
