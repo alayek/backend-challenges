@@ -72,9 +72,23 @@ If you absolutely have to share it with a fellow contributor, who for some reaso
 
 If you have mistakenly done so, you might want to remove and purge [such sensitive data](https://help.github.com/articles/remove-sensitive-data/).
 
-### Contributions
+### Contributions & Roadmap
 
-For more info on how to contribute, check out contribution guide.
+We have developed an initial set of meta challenges required for Python in this [Google Doc](https://docs.google.com/document/d/1lNi2bKms52uMtvwxn3znnspz08UUwuSTMYXKDyiUd_k/edit). This note will serve as a roadmap of how we will proceed and contribute in this repo, not only for Python but for all backend languages.
+
+#### Deliverables
+
+The final UI framework, using [REPL.it](https://repl.it), will send to the repl server two sets of code concatenated, one the user snippet, and another the test code, and then would check for all tests passed in the returned answer. So, we need to deliver two things per challenge :
+
+* The barebones code file, without solution
+* The unit test file, testing the above
+
+#### Development Plan
+
+Each language directory has individual sub-directory for challenges, such as [python/001-hello-world](https://github.com/alayek/backend-challenges/tree/staging/python/001_hello_world). This directory will contain two files, one `challenge.xx` containing barebones code, another `challenge.test.xx` containing unit test , where xx can be .py, .rb etc
+
+Each language should have two branches in the repo. Like for python, it will be `python-challenges` & `python-solutions`. The solutions branch will contain **FULL** solution to those barebones `challenge.xx` file, such that we can unit test them locally. The tests will _pass_ in python-solutions branch but _fail_ in python-challenges branch.
+Therefore, maintaining this structure we can easily and parallely develop the challenges which will be delivered to the UI team for implementation.
 
 ### License
 
