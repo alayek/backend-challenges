@@ -4,5 +4,5 @@
 
 def print_hello():
 	## Write the print statement here
-	##
+	print("Hello World")
 	## End of Code
