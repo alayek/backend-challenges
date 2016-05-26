@@ -38,3 +38,11 @@ jspm_packages
 
 # Config file
 config/*.js
+
+# Virtualenv
+.env
+
+# Py.test
+.cache
+__pycache__
+*.pyc

@@ -23,6 +23,19 @@ npm install
 node phantom-tester.js --port [port]
 ```
 
+## Run Tests
+
+In this repo, we will accumulate all the backend challenges for the above mentioned languages. The individual testing instructions are given as follows.
+
+### Python
+
+```python
+# Install pytest if not present
+pip install pytest
+# Run the tests
+py.test
+```
+
 ### REPL API Usage
 
 The tests are run using [REPL API](https://repl.it/api/). It supports multiple languages, as long as the language is clearly specified from client side.
