@@ -4,7 +4,7 @@
   "description": "[![Join the chat at https://gitter.im/FreeCodeCamp/BackendChallanges](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/FreeCodeCamp/BackendChallanges)",
   "main": "phantom-tester.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/repl_test.js"
   },
   "repository": {
     "type": "git",
