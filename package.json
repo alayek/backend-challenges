@@ -17,8 +17,12 @@
   },
   "homepage": "https://github.com/alayek/backend-challenges#readme",
   "dependencies": {
+    "colors": "^1.1.2",
     "express": "^4.13.4",
+    "node-dir": "^0.1.12",
     "phantom": "^2.0.10",
+    "replit-client": "^0.3.0",
+    "ws": "^1.1.0",
     "yargs": "^4.6.0"
   }
 }
