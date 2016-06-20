@@ -1,4 +1,4 @@
-from hello_world import print_hello
+from hello_world_solution import print_hello
 # The above import should be removed before sending it to Repl
 import sys
 try:
