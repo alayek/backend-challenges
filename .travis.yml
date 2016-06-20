@@ -1,0 +1,36 @@
+sudo: required
+dist: trusty
+language: node_js
+node_js:
+  - "4.4"
+python:
+  - "3.4"
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      # nodejs >v4 compiler requirements
+      - g++-4.8
+before_install:
+  - sudo apt-get -y install python3-pip python-dev
+  - sudo pip3 install -U setuptools
+  - sudo pip3 install -U virtualenvwrapper
+  - python3 -V
+  - pip3 -V
+install:
+  - npm install
+  - sudo pip3 install -r requirements.txt
+env:
+  global:
+    - CXX=g++-4.8
+    - NODE_ENV=development
+    - secure: "4TXqhWnHNmbjDmWS776g+Yw5N9/rKQYa+G+qyqZ39BAXG1qHTTvAKiCXQtH1sUkdhbWD4wBCIH3obXy0yEWjPAJRoaQrrQTF1hl3x7NDCQj/v7P9McpGoor6S+iE/a+zerOaQdOnY0n200aG34Jf6fKHeYbqzzgIUz4V51YdtItXmQoFL50+++RPoUtSEfaNvd9POH+L32+FGbMyHszbGoix1vCanOOQyzJM0GPjYXjdegL99jm0L8+ly+pNGfjOET0iEfX7PLG4aRQNQz68XkQZHm9prb9NjvWzHB8WxuvLuxFFQh9yV2OBf5awePLNvGhLZzTI561NUkadmOhqi9BF32Ai68PMsDYQEdxomt/L2KL48JcGfN0RurmPCR4jx68hdNghF68iwqXmud3z4mSGO1IXHlt7BiPVFH+mYO4JcQNQgSAA9DyEbqaVvJSMZv91SoRJSFozDGrUcQxx8pTWzu8nX6WvfxQKEa0BJVsshGMe47Hugaf/nOCUuV38gORzf5o1l/w8DykNzb45aREYRRpns270MT0PKTDQaJ9fy8jptCldTXL+DnVryeKV+AdTk+hNgsxuihdmBeWJLjHUdYmZpIFZnjx9OQ7xvTpqGxlH0c6hpqA9nF+5piOjcog91v5KCyC4G2UBtjZ/rx4UBcc0bxKOnIh3UmVXmg8="
+  script:
+  - py.test
+  - npm test
+branches:
+  only:
+    - staging
+notifications:
+  email: false

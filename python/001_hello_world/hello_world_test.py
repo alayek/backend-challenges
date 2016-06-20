@@ -1,4 +1,4 @@
-from hello_world import print_hello
+from hello_world_solution import print_hello
 # The above import should be removed before sending it to Repl
 import sys
 try:
@@ -16,4 +16,5 @@ def test_hello_world():
   assert output == "Hello World\n"
 
 ## Last line of file should have the testing method signature for Repl to run it
+## $$TEST_METHOD$$
 ## test_hello_world()
