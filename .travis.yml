@@ -31,6 +31,6 @@ env:
   - npm test
 branches:
   only:
-    - restructure
+    - staging
 notifications:
   email: false

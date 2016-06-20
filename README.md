@@ -20,7 +20,7 @@ Not all of these are supported on [REPL](https://repl.it/) at the moment; but fo
 ```
 npm install
 
-node phantom-tester.js --port [port]
+npm test
 ```
 
 ## Run Tests
@@ -39,35 +39,6 @@ py.test
 ### REPL API Usage
 
 The tests are run using [REPL API](https://repl.it/api/). It supports multiple languages, as long as the language is clearly specified from client side.
-
-Once you have obtained the REPL API secret key, you can use that to generate API token and use that token. The steps are provided as follows:
-- Execute the Ruby code in this [REPL snippet](https://repl.it/gZp/1). It would return a JSON output with two fields: `msg_mac` and `time_created`.
-- Make a call to the REPL API like this
-```html
-<html>
-    <head></head>
-    <body>
-        <h1>REPL TESTER </h1>
-        <p><button onclick="test()">TEST</button></p>
-        <h4>Output : </h4>
-        <p class="output"></p>
-        <script src="http://repl.it/lib/api.js"></script>
-        <script>
-        function test() {
-            var token = {msg_mac: 'msg_mac', time_created: 000000000};
-            var repl = new ReplitClient('api.repl.it', 80, 'python', token);
-            repl.connect().then(
-              function() { console.log('connected'); },
-              function() { console.log('failed to connect'); }
-            );
-        }
-        </script>
-    </body>
-</html>
-```
-Replace `msg_mac` and `time_created` with the values generated from the API.
-
-Notice that each generated token expires in five days. It's recommended to create one token per user
 
 ### Obtaining REPL API Secret
 
@@ -100,9 +71,21 @@ The final UI framework, using [REPL.it](https://repl.it), will send to the repl 
 
 #### Development Plan
 
-Each language directory has individual sub-directory for challenges, such as [python/001-hello-world](https://github.com/alayek/backend-challenges/tree/staging/python/001_hello_world). This directory will contain two files, one `challenge.xx` containing barebones code, another `challenge.test.xx` containing unit test , where xx can be .py, .rb etc
+Each language directory has individual sub-directory for challenges, such as [python/001-hello-world](https://github.com/alayek/backend-challenges/tree/staging/python/001_hello_world). This directory will contain four files :
 
-Each language should have one separate branch in the repo. Like for python, it will be `python-solutions`, where we will keep only the solutions, while the barebones code will be in `staging` branch only. The solutions branch will contain **FULL** solution to those barebones `challenge.xx` file, such that we can unit test them locally. The tests will _pass_ in `python-solutions` branch but _fail_ in `staging` branch.
+- `xxx_problem.xx` - The challenge code, containing the barebones but no solution
+- `xxx_solution.xx` - The solution code to the challenge
+- `xxx_test.xx` - The test cases to test the solution
+- `xxx_question.md` - The problem statement document
+
+Currently, the python development strategy has been setup and corresponding CI has been hosted in Travis. For all languages, we should first check the solution locally, which will ensure our test cases are ok, and then the same tests will be run in REPL enviroment, so as to make both challenge and tests REPL friendly. The file [test/repl.js](test/repl.js) takes care of the handling of python files for now, similar structure will be implemented for all other languages.
+
+#### Local Development
+
+- **Python** : Install the dependency (only pytest) from requirements.txt (`pip install -r requirements.txt`), and run `py.test` from any where in the repo. Contact us if you want to volunteer for REPL testing as well, we would then share the secret (only for core contributors).
+
+**NB for Core Collaborators** : Open a branch directly in this repo to file a PR, as Travis does not allow secured
+environment variables in external PR's for now.
 
 Therefore, maintaining this structure, we can easily and parallely develop the challenges which will be delivered to the UI team for implementation.
 
