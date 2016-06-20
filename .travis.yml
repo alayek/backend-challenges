@@ -25,6 +25,7 @@ env:
   global:
     - CXX=g++-4.8
     - NODE_ENV=development
+    - secure: VAx+Cq9TLFSLN9VHLVDJ+SlcUzy4FFu48r0/tbPNtuQX9gk94ZG1AxN5ewaY1RkFrB4pkeXm/5ZbgT+c+YdIV/kMQxYi3QgEuGmBNCkHDMKWp8lquO28JnK8qYnk1Imz4ZvA4hFeqnanA0kZRUmglMVxDdsTBkt3GNMVn2x5TNIM/tECYOsX7dDLRslrvHYP5Qxaizkqr6DpESjZm+vW/lMGODGx2F7tQjYD15racGyxNvyO90snkmFIxRn46tW/qIcqCwfYQxJW+NHrO83ZuANCtnvwA0C96kz/YnMuM3+3xuTruSNAdzf36C55S6z5IMNbRKe3ZDtYi+f0RTCfmcfCn+YINiyY1FliiNXf+Gn37ZeyG/tInmiXfJdcw22Twgv3g3yQKIqWfK3205UWWrZrHeG3vNIGq07qJZ75sKciLzl7zIBtrfRaOGC7AxPbkaSK5W8lnYR4CVxX7oluwgnfMKuK6dYomIodtuD7h/QtZSnqnMqgFNPOXNWLtvGOh/Zp/S749yNom4iGcrnGxJ8E6C1FZZkgUspPwpX2l94KdETrLNWVfI423pK1i6Q9GlhoOyU9U5Ee8bSB43sG77A/l1LBxtZaO/sLANX2B2NNnD5yNPGxqjWXtNLw7EeK2iuzDkgB+oWl9q+wVf1FxYfiDWHrmwJidVuDwVk+Yx0=
 script:
   - py.test
   - npm test
