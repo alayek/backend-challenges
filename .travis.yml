@@ -30,6 +30,6 @@ script:
   - npm test
 branches:
   only:
-    - python-solution
+    - restructure
 notifications:
   email: false
