@@ -16,4 +16,5 @@ def test_hello_world():
   assert output == "Hello World\n"
 
 ## Last line of file should have the testing method signature for Repl to run it
+## $$TEST_METHOD$$
 ## test_hello_world()

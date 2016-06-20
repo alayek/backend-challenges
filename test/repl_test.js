@@ -13,6 +13,8 @@ var colors = require('colors')
 var payload = ''
 var count = 0
 
+var PADDING = 19
+
 var repl = new ReplitClient('api.repl.it', 80, 'python', token, WebSocket)
 console.log('connecting to Python repl ...'.bold)
 repl.connect().then(function () {
@@ -34,16 +36,21 @@ function readProgramFiles() {
 		count ++
 		if (err) throw err;
 		console.log('reading ' + filename)
-		// comment the top line to remove imports
-	  payload = payload + "\n# " + content
-	  // hacky solution, should be done better
-	  // after every two files, concatenate and send to payload for testing
-	  if (count % 2 == 0) {
+
+		if(filename.includes('_solution')) {
+			// comment the top line to remove imports
+	  	payload = content + "\n# "
+			next()
+		}
+		else if(filename.includes('_test')) {
 	  	var fname = filename.substr(filename.lastIndexOf('/') + 1)
-	  	sendPayload(payload, fname, next)
+			var m = content.lastIndexOf('$$TEST_METHOD$$')
+			var testMethod = content.substr(m + PADDING,content.length)
+			payload = payload + content + "\n" + testMethod
+			sendPayload(payload, fname, next)
 	  	payload = ''
 	  } else {
-	  	next()
+			next()
 		}
 	}, function(err, files){
 	  if (err) throw err;
