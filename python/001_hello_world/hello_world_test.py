@@ -13,7 +13,7 @@ def test_hello_world():
   print_hello()
   sys.stdout = stdout
   output = result.getvalue()
-  assert output == "Hello World\n"
+  assert output == "Hello World\n","Expected output Hello World, got : %s" % output
 
 ## Last line of file should have the testing method signature for Repl to run it
 ## $$TEST_METHOD$$

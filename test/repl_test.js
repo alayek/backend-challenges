@@ -14,6 +14,7 @@ var payload = ''
 var count = 0
 
 var PADDING = 19
+var isError = false
 
 var repl = new ReplitClient('api.repl.it', 80, 'python', token, WebSocket)
 console.log('connecting to Python repl ...'.bold)
@@ -57,6 +58,10 @@ function readProgramFiles() {
 	  console.log('------------------Reading Complete--------------------')
 	  console.log('disconnecting repl'.bold)
 	  repl.disconnect()
+		if(isError) {
+			throw new Error('failed REPL checks')
+			isError = false
+		}
 	})
 }
 
@@ -75,14 +80,12 @@ function sendPayload(payload, filename, next) {
 		}
 	}).then(function (result) {
 		if(result.error) {
-			console.log('error', result.error)
-		}
-		try {
-			assert.strictEqual(result.data, 'None')
-			console.log(filename.green + ' passed REPL checks'.green)
-		} catch(AssertException) {
+			console.log(result.error.red)
 			console.log(filename.red + ' failed REPL checks'.red)
-		} finally {
+			isError = true
+			next(new Error('failed checks'))
+		} else {
+			console.log(filename.green + ' passed REPL checks'.green)
 			next()
 		}
 	})
