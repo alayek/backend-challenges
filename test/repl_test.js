@@ -18,7 +18,7 @@ var isError = false
 
 var repl = new ReplitClient('api.repl.it', 80, 'python', token, WebSocket)
 console.log('connecting to Python repl ...'.bold)
-repl.connect().then(function () {
+return repl.connect().then(function () {
 	console.log('connected to repl'.bold)
 	readProgramFiles()
 }, function () {
