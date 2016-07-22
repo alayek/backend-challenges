@@ -4,7 +4,7 @@
   "description": "[![Join the chat at https://gitter.im/FreeCodeCamp/BackendChallanges](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/FreeCodeCamp/BackendChallanges)",
   "main": "phantom-tester.js",
   "scripts": {
-    "test": "node test/repl_test.js"
+    "test": "mocha tests/run-tests.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,9 @@
     "replit-client": "^0.3.0",
     "ws": "^1.1.0",
     "yargs": "^4.6.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
   }
 }
