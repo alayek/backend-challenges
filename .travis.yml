@@ -32,5 +32,6 @@ env:
 branches:
   only:
     - staging
+    - travis-ci
 notifications:
   email: false
