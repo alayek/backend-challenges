@@ -4,7 +4,7 @@
   "description": "[![Join the chat at https://gitter.im/FreeCodeCamp/BackendChallanges](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/FreeCodeCamp/BackendChallanges)",
   "main": "phantom-tester.js",
   "scripts": {
-    "test": "mocha tests/run-tests.js"
+    "test": "mocha test/run-tests.js"
   },
   "repository": {
     "type": "git",
